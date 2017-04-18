@@ -20,6 +20,7 @@ public class ListenerActivity {
     int bufferSize;
     AudioRecord record;
     private int minSize = 0;
+    short[] buffer = new short[bufferSize];
     public void runListener(){
         getValidSampleRates();
         start(record);
@@ -43,7 +44,7 @@ public class ListenerActivity {
     }
 
     private void read(AudioRecord record){
-        short[] buffer = new short[bufferSize];
+         buffer = new short[bufferSize];
         while(record.getRecordingState()== RECORDSTATE_RECORDING) {
             record.read(buffer, 0, bufferSize);
 
