@@ -12,11 +12,11 @@ public class AlertingActivity extends MainActivity {
     Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
     public void read(){
-        Lis.runListener();
         short[] tempBuffer = Lis.buffer;
-        for(int i=50; i >50; i++){
+        for(int i=1; i==50; i++){
              if(tempBuffer[i]>80){
                 v.vibrate(1000);
+                 i++;
              }
         }
 
