@@ -26,6 +26,9 @@ public class ListenerActivity {
         start(record);
         read(record);
     }
+    public void stopLis(){
+        stop(record);
+    }
 
 
     private void getValidSampleRates() {
@@ -42,6 +45,7 @@ public class ListenerActivity {
     private void start(AudioRecord record){
         record.startRecording();
     }
+    private void stop(AudioRecord record){ record.stop();}
 
     private void read(AudioRecord record){
          buffer = new short[bufferSize];

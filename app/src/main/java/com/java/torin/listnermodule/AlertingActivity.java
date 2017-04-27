@@ -16,8 +16,10 @@ public class AlertingActivity extends MainActivity {
         for(int i=1; i==50; i++){
              if(tempBuffer[i]>80){
                 v.vibrate(1000);
-                 i++;
+                 i=50;
+                 Lis.stopLis();
              }
+            i++;
         }
 
     }
