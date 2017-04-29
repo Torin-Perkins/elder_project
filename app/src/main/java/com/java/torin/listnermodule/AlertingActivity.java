@@ -13,13 +13,15 @@ public class AlertingActivity extends MainActivity {
 
     public void read(){
         short[] tempBuffer = Lis.buffer;
-        for(int i=1; i==50; i++){
+        for(int i=1;i<50; i++){
              if(tempBuffer[i]>80){
                 v.vibrate(1000);
-                 i=50;
+
                  Lis.stopLis();
+
+                 break;
              }
-            i++;
+
         }
 
     }
