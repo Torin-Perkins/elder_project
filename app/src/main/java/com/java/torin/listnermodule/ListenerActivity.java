@@ -52,7 +52,14 @@ public class ListenerActivity {
     }
     private void stop(AudioRecord record){ record.stop();
     }
-
+    protected boolean recordingState(){
+        if(record.getRecordingState() == RECORDSTATE_RECORDING){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     private void read(AudioRecord record){
          buffer = new short[bufferSize];
         while(record.getRecordingState()== RECORDSTATE_RECORDING) {

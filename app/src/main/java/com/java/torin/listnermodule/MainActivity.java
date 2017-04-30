@@ -21,14 +21,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     ListenerActivity Listener = new ListenerActivity();
-
+    AlertingActivity a = new AlertingActivity();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Listener.runListener();
-
+        a.read();
 
 
     }
