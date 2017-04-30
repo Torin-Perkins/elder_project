@@ -3,9 +3,11 @@ package com.java.torin.listnermodule;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 
 import java.util.Arrays;
+import java.util.Random;
 
 import static android.media.AudioFormat.CHANNEL_IN_MONO;
 import static android.media.AudioFormat.ENCODING_PCM_16BIT;
@@ -21,6 +23,9 @@ public class ListenerActivity {
     AudioRecord record;
     private int minSize = 0;
     short[] buffer = new short[bufferSize];
+    String AudioSavePathInDevice = null;
+    Random random = new Random();
+    String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
     public void runListener(){
         getValidSampleRates();
         start(record);
@@ -45,7 +50,8 @@ public class ListenerActivity {
     private void start(AudioRecord record){
         record.startRecording();
     }
-    private void stop(AudioRecord record){ record.stop();}
+    private void stop(AudioRecord record){ record.stop();
+    }
 
     private void read(AudioRecord record){
          buffer = new short[bufferSize];
@@ -54,5 +60,21 @@ public class ListenerActivity {
 
             Log.v("READ",""+ Arrays.toString(buffer));
         }
+    }
+    public void createSaver(){
+        AudioSavePathInDevice =
+                Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +
+                        CreateRandomAudioFileName(5) + "AudioRecording.3gp";
+    }
+    public String CreateRandomAudioFileName(int string){
+        StringBuilder stringBuilder = new StringBuilder( string );
+        int i = 0 ;
+        while(i < string ) {
+            stringBuilder.append(RandomAudioFileName.
+                    charAt(random.nextInt(RandomAudioFileName.length())));
+
+            i++ ;
+        }
+        return stringBuilder.toString();
     }
 }
