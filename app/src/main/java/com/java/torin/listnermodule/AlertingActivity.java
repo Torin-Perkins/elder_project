@@ -35,18 +35,20 @@ public class AlertingActivity extends AppCompatActivity {
 
         }
     public  void timeBasedRead (int Time,int Value){
-        short[] tempBuffer;
-        for(int j = 0;)
-        for(int i=0;i<800;i++){
-            if(i==0){
-                tempBuffer=Lis.buffer;
+        short[] tempBuffer=Lis.buffer;
+        int timeToTimes = (((Time/60*60)/1000)/10)*8;
+        for(int j = 0;j<timeToTimes;j++) {
+            for (int i = 0; i < 800; i++) {
+                if (i == 0) {
+                    tempBuffer = Lis.buffer;
 
-            }
-            if (tempBuffer[i]>Value){
-                Log.v("SWITCH", "Switched");
-                s.Switch();
-                Lis.stopLis();
-                break;
+                }
+                if (tempBuffer[i] > Value) {
+                    Log.v("SWITCH", "Switched");
+                    s.Switch();
+                    Lis.stopLis();
+                    break;
+                }
             }
         }
     }
