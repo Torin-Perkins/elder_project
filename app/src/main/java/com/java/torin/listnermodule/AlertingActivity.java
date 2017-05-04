@@ -36,9 +36,19 @@ public class AlertingActivity extends AppCompatActivity {
         }
     public  void timeBasedRead (int Time,int Value){
         short[] tempBuffer=Lis.buffer;
-        int timeToTimes = (((Time/60*60)/1000)/10)*8;
-        for(int j = 0;j<timeToTimes;j++) {
-            for (int i = 0; i < 800; i++) {
+        int y=0;
+       // y=tempBuffer[0]+tempBuffer[1]+tempBuffer[2]+tempBuffer[3]+tempBuffer[4]+tempBuffer[5]+tempBuffer[6]+tempBuffer[7]+tempBuffer[8]+tempBuffer[9]+tempBuffer[10]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]+tempBuffer[3]
+        //int timeToTimes = (((Time/60*60)/1000)/10)*8;
+       // for(int j = 0;j<timeToTimes;j++) {
+        for(int k=0;k<800;k++){
+            if (k == 0) {
+                tempBuffer = Lis.buffer;
+
+            }
+            y=y+tempBuffer[k];
+            Log.v("y",""+y);
+        }
+           /* for (int i = 0; i < 800; i++) {
                 if (i == 0) {
                     tempBuffer = Lis.buffer;
 
@@ -47,11 +57,11 @@ public class AlertingActivity extends AppCompatActivity {
                     Log.v("SWITCH", "Switched");
                     s.Switch();
                     Lis.stopLis();
-                    break;
+                    timeBasedRead(1,2000);
                 }
-            }
+            }*/
         }
-    }
+    //}
 
     }
 
