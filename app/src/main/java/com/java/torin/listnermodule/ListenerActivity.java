@@ -62,10 +62,20 @@ public class ListenerActivity {
     }
     private void read(AudioRecord record){
          buffer = new short[bufferSize];
+        short[]tempBuffer=null;
+        int y =0;
         while(record.getRecordingState()== RECORDSTATE_RECORDING) {
             record.read(buffer, 0, bufferSize);
 
             Log.v("READ",""+ Arrays.toString(buffer));
+            for(int k=0;k<800;k++){
+                if (k == 0) {
+                    tempBuffer =buffer;
+
+                }
+                y=y+tempBuffer[k];
+                Log.v("y",""+y);
+            }
         }
     }
     public void createSaver(){

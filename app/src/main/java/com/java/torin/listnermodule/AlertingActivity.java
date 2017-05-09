@@ -46,6 +46,9 @@ public class AlertingActivity extends AppCompatActivity {
 
             }
             y=y+tempBuffer[k];
+            if(y<-1653458){
+
+            }
             Log.v("y",""+y);
         }
            /* for (int i = 0; i < 800; i++) {
