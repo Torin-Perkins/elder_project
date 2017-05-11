@@ -1,9 +1,13 @@
 package com.java.torin.listnermodule;
 
+import android.content.Context;
+import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Vibrator;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.Arrays;
@@ -18,7 +22,7 @@ import static android.media.MediaRecorder.AudioSource.MIC;
  * Created by Admin on 4/15/2017.
  */
 
-public class ListenerActivity {
+public class ListenerActivity extends AppCompatActivity{
     int bufferSize;
     AudioRecord record;
     private int minSize = 0;
@@ -26,6 +30,7 @@ public class ListenerActivity {
     String AudioSavePathInDevice = null;
     Random random = new Random();
     String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
+
     public void runListener(){
         getValidSampleRates();
         start(record);
@@ -62,6 +67,7 @@ public class ListenerActivity {
     }
     private void read(AudioRecord record){
          buffer = new short[bufferSize];
+        
         short[]tempBuffer=null;
         int y =0;
         while(record.getRecordingState()== RECORDSTATE_RECORDING) {
@@ -74,6 +80,11 @@ public class ListenerActivity {
 
                 }
                 y=y+tempBuffer[k];
+                if(y>1053458){
+                    Log.v("Switch","SWITCH");
+
+                    break;
+                }
                 Log.v("y",""+y);
             }
         }
