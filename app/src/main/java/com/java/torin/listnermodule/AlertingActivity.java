@@ -1,9 +1,6 @@
 package com.java.torin.listnermodule;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
@@ -12,7 +9,7 @@ import android.util.Log;
  */
 
 public class AlertingActivity extends AppCompatActivity {
-    ListenerActivity Lis = new ListenerActivity();
+    ListenerHelper Lis = new ListenerHelper();
     SwitchOver s = new SwitchOver();
 
 
