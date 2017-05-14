@@ -25,6 +25,14 @@ public class SignInHelper {
     String AudioSavePathInDevice = null;
     Random random = new Random();
     String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
+    int whisper;
+    int normal;
+    int yell;
+    int Threshold;
+    String firstName;
+    String lastName;
+    String Email;
+    String Therapist;
 
     // Vibrate for 500 milliseconds
 
@@ -94,6 +102,20 @@ public class SignInHelper {
         }
         return y;
     }
+
+    public void getWhisper(){
+        whisper=getRec();
+    }
+    public void getNorm(){
+        normal=getRec();
+    }
+    public void getYell(){
+        yell=getRec();
+    }
+    public void calcValForThresh(){
+        Threshold=normal + whisper;
+    }
+
 
     }
 
