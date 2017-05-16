@@ -23,7 +23,7 @@
         android:inputType="textPersonName"
         android:text="First Name"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/FirstName"
         android:layout_weight="0.17" />
 
     <EditText
@@ -32,7 +32,7 @@
         android:inputType="textPersonName"
         android:text="Last Name"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/LastName"
         android:layout_weight="0.17" />
 
     <ImageButton
