@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/checkbox_on_background"
-        android:id="@+id/imageButton"
+        android:id="@+id/Next"
         android:background="@drawable/backround_colors"
         android:layout_weight="0.45" />
 
