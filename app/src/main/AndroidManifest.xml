@@ -16,6 +16,7 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
+
         <activity android:name=".NameActivity">
         <intent-filter>
             <action android:name="android.intent.action.EDIT" />
@@ -23,13 +24,30 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
-        <activity android:name=".EmailActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    <activity android:name=".EmailActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.EDIT" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+    <activity android:name=".BolTherapistActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.EDIT" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+<activity android:name=".TherapistEmailActivity">
+<intent-filter>
+    <action android:name="android.intent.action.EDIT" />
+
+    <category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
     </application>
 
 </manifest>

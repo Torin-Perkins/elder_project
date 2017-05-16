@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backround_colors">
+    <TextView
+        android:text="What is your therapist's email?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/textView4"
+        android:textSize="50sp"
+        android:fontFamily="sans-serif"
+        android:layout_alignParentTop="true" />
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="22dp"
+        android:id="@+id/TherEmail"
+        android:text="Email"/>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:srcCompat="@android:drawable/checkbox_on_background"
+        android:id="@+id/Next"
+        android:background="@drawable/backround_colors"
+        android:layout_weight="0.45"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp"/>
+</RelativeLayout>

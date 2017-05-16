@@ -11,7 +11,7 @@ import android.widget.ImageButton;
  * Created by Admin on 5/16/2017.
  */
 
-public class EmailActivity extends AppCompatActivity {
+public class TherapistEmailActivity extends AppCompatActivity {
     SignInHelper s = new SignInHelper();
     EditText email;
     ImageButton next;
@@ -21,23 +21,23 @@ public class EmailActivity extends AppCompatActivity {
         public void onClick(View v) {
             // do something when the button is clicked
 
-            s.Email = getEmail();
+            s.TherapistEmail = getEmail();
 
             startActivity(myIntent);
         }
     };
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.email_activity);
+        setContentView(R.layout.email_therapist_activity);
         next = (ImageButton) findViewById(R.id.Next);
-        myIntent = new Intent(this, BolTherapistActivity.class);
+        myIntent = new Intent(this, IntroActivity.class);
         next.setOnClickListener(Listener);
 
 
     }
 
     public String getEmail(){
-        email = (EditText) findViewById(R.id.email);
+        email = (EditText) findViewById(R.id.TherEmail);
         String newString = email.getText().toString();
 
 

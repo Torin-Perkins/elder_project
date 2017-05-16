@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backround_colors">
+
+    <TextView
+        android:text="Do you have a therapist?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/textView4"
+        android:textSize="50sp"
+        android:fontFamily="sans-serif"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:text="yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="88dp"
+        android:id="@+id/yes"
+        android:background="@drawable/backround_colors"/>
+
+    <Button
+        android:text="no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/yes"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="44dp"
+        android:layout_marginEnd="44dp"
+        android:id="@+id/no"
+        android:background="@drawable/backround_colors"/>
+
+
+</RelativeLayout>
