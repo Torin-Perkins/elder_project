@@ -30,7 +30,7 @@ public class TherapistEmailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.email_therapist_activity);
         next = (ImageButton) findViewById(R.id.Next);
-        myIntent = new Intent(this, IntroActivity.class);
+        myIntent = new Intent(this, WhisperActivity.class);
         next.setOnClickListener(Listener);
 
 

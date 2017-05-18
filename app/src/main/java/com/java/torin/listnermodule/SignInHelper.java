@@ -41,7 +41,7 @@ public class SignInHelper {
     public void runListener() {
         getValidSampleRates();
         start(record);
-        //read(record);
+        //record.read();
     }
 
     public void stopLis() {
@@ -77,6 +77,7 @@ public class SignInHelper {
     }
 
     public int getRec() {
+        runListener();
         buffer = new short[bufferSize];
 
         short[] tempBuffer = null;
@@ -85,23 +86,25 @@ public class SignInHelper {
 
 
         Log.v("READ", "" + Arrays.toString(buffer));
-        while (record.getRecordingState() == RECORDSTATE_RECORDING) {
+        for (int j=0;j<30;j++) {
+            record.read(buffer, 0, bufferSize);
             for (int k = 0; k < 800; k++) {
                 if (k == 0) {
                     tempBuffer = buffer;
                     y=0;
                 }
                 y = y + tempBuffer[k];
-                if(Math.abs(y)>i){
+                if(Math.abs(y)>=i){
                     i=y;
                 }
 
-                Log.v("y", "" + y);
+                Log.v("y", "" + i);
             }
 
 
         }
-        return y;
+        stopLis();
+        return i;
     }
 
     public void getWhisper(){
