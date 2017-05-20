@@ -1,12 +1,17 @@
 package com.java.torin.listnermodule;
 
+import android.content.Context;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.Random;
+
+import javax.xml.datatype.Duration;
 
 import static android.media.AudioFormat.CHANNEL_IN_MONO;
 import static android.media.AudioFormat.ENCODING_PCM_16BIT;
@@ -103,7 +108,9 @@ public class SignInHelper {
 
 
         }
+
         stopLis();
+
         return i;
     }
 
