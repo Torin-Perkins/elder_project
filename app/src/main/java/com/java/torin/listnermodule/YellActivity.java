@@ -13,7 +13,7 @@ import android.widget.Toast;
  * Created by Admin on 5/18/2017.
  */
 
-public class NormActivity extends AppCompatActivity {
+public class YellActivity extends AppCompatActivity {
     SignInHelper s = new SignInHelper();
     Button yes;
     Button no;
@@ -26,7 +26,7 @@ public class NormActivity extends AppCompatActivity {
 
 
 
-    s.getNorm();
+    s.getYell();
             b = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             b.vibrate(2000);
             Toast.makeText(getApplicationContext(),"Done listening please press next",Toast.LENGTH_SHORT).show();
@@ -44,10 +44,10 @@ public class NormActivity extends AppCompatActivity {
     };
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.norm_activity);
+        setContentView(R.layout.yell_activity);
         yes = (Button) findViewById(R.id.button);
         no= (Button) findViewById(R.id.button2);
-        myIntent = new Intent(this, YellActivity.class);
+        myIntent = new Intent(this, TherapistEmailActivity.class);
         yes.setOnClickListener(Listener);
         no.setOnClickListener(List);
 
