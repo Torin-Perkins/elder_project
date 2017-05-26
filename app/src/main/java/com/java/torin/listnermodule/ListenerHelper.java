@@ -63,6 +63,7 @@ public class ListenerHelper extends AppCompatActivity{
         record.startRecording();
     }
     private void stop(AudioRecord record){ record.stop();
+        record.release();
     }
     protected boolean recordingState(){
         if(record.getRecordingState() == RECORDSTATE_RECORDING){

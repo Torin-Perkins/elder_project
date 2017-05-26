@@ -11,6 +11,7 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
+import android.os.Process;
 import android.os.Vibrator;
 import android.widget.Toast;
 
@@ -54,6 +55,7 @@ public class ListenerService extends Service {
                 Process.THREAD_PRIORITY_BACKGROUND);
         thread.start();
 
+
         // Get the HandlerThread's Looper and use it for our Handler
         mServiceLooper = thread.getLooper();
         mServiceHandler = new ServiceHandler(mServiceLooper);
@@ -88,5 +90,6 @@ public class ListenerService extends Service {
     @Override
     public void onDestroy() {
         Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
+        Listener.stopLis();
     }
 }

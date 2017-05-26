@@ -71,6 +71,7 @@ public class SignInHelper {
 
     private void stop(AudioRecord record) {
         record.stop();
+
     }
 
     protected boolean recordingState() {
