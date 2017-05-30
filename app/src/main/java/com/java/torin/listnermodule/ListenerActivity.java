@@ -38,8 +38,8 @@ public class ListenerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listener_activity);
-        start = (Button) findViewById(R.id.yes);
-        stop= (Button) findViewById(R.id.no);
+        start = (Button) findViewById(R.id.button);
+        stop= (Button) findViewById(R.id.button2);
         myIntent = new Intent(this, ListenerService.class);
 
         start.setOnClickListener(listener);

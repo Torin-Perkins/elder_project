@@ -47,7 +47,7 @@ public class YellActivity extends AppCompatActivity {
         setContentView(R.layout.yell_activity);
         yes = (Button) findViewById(R.id.button);
         no= (Button) findViewById(R.id.button2);
-        myIntent = new Intent(this, TherapistEmailActivity.class);
+        myIntent = new Intent(this, ListenerActivity.class);
         yes.setOnClickListener(Listener);
         no.setOnClickListener(List);
 

@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".IntroActivity">
         <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.EDIT" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
@@ -66,6 +66,14 @@
         <activity android:name=".YellActivity">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ListenerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
