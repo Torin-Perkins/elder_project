@@ -13,8 +13,28 @@
     tools:context="com.java.torin.listnermodule.IntroActivity">
 
     <TextView
+        android:text="Chill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/textView4"
+        android:textSize="50sp"
+        android:fontFamily="sans-serif"
+        android:layout_alignParentTop="true" />
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hey!!!!!!!!!!!!!!!!!!!!!!!!" />
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_centerVertical="true"
+        android:id="@+id/email"
+        android:text="Email"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
 
 </RelativeLayout>

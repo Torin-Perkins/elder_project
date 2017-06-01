@@ -31,7 +31,7 @@ public class ListenerActivity extends AppCompatActivity {
 
 
 
-            stopService(myIntent2);
+            stopService(myIntent);
         }
     };
     @Override

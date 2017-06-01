@@ -22,7 +22,7 @@ import android.widget.Toast;
 public class ListenerService extends Service {
     private Looper mServiceLooper;
     private ServiceHandler mServiceHandler;
-
+Intent intent;
     // Handler that receives messages from the thread
     private final class ServiceHandler extends Handler {
         public ServiceHandler(Looper looper) {
@@ -45,6 +45,7 @@ public class ListenerService extends Service {
     }
     ListenerHelper Listener ;
     Vibrator v ;
+
     @Override
     public void onCreate() {
         // Start up the thread running the service.  Note that we create a
@@ -59,12 +60,14 @@ public class ListenerService extends Service {
         // Get the HandlerThread's Looper and use it for our Handler
         mServiceLooper = thread.getLooper();
         mServiceHandler = new ServiceHandler(mServiceLooper);
+        intent = new Intent(this, ListenerService.class);
         Listener = new ListenerHelper();
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         Listener.runListener();
         if(Listener.isOverLis()){
-            v.vibrate(1000);
+            startActivity(intent);
         }
+
     }
 
     @Override
