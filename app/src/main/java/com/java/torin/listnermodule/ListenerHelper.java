@@ -101,7 +101,7 @@ public class ListenerHelper extends AppCompatActivity{
 
     public boolean isOverLis(){
         buffer = new short[bufferSize];
-
+        boolean toReturn = false;
         short[]tempBuffer=null;
         int y =0;
         while(record.getRecordingState()== RECORDSTATE_RECORDING) {
@@ -116,14 +116,16 @@ public class ListenerHelper extends AppCompatActivity{
                 y=y+tempBuffer[k];
                 if(y>1053458){
                     Log.v("Switch","SWITCH");
+                    toReturn = true;
 
-                    return true;
+                    break;//return true;
 
                 }
                 Log.v("y",""+y);
             }
         }
-        return false;
+
+        return toReturn;//return false;
     }
     public void createSaver(){
         AudioSavePathInDevice =

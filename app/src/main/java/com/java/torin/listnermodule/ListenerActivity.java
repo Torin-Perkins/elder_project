@@ -1,10 +1,14 @@
 package com.java.torin.listnermodule;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -38,6 +42,9 @@ public class ListenerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listener_activity);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(listenerbroadcastreceiver,listenerintentfilter);
+
         start = (Button) findViewById(R.id.button);
         stop= (Button) findViewById(R.id.button2);
         myIntent = new Intent(this, ListenerService.class);
@@ -58,11 +65,16 @@ public class ListenerActivity extends AppCompatActivity {
 
     }
 
+private final IntentFilter listenerintentfilter = new IntentFilter("name");
 
 
 
-
-
+private final BroadcastReceiver listenerbroadcastreceiver= new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Log.v("SERVICE","got = service")
+    }
+};
 
 
 }

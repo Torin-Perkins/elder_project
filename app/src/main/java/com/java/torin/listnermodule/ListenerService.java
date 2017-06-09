@@ -60,7 +60,7 @@ Intent intent;
         // Get the HandlerThread's Looper and use it for our Handler
         mServiceLooper = thread.getLooper();
         mServiceHandler = new ServiceHandler(mServiceLooper);
-        intent = new Intent(this, ListenerService.class);
+        intent = new Intent(this, AlertingActivity.class);
         Listener = new ListenerHelper();
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         Listener.runListener();
