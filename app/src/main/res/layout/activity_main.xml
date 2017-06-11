@@ -44,9 +44,10 @@
         android:background="@drawable/backround_colors"
         android:layout_weight="0.45"
 
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_marginBottom="30dp" />
 
 
 </RelativeLayout>

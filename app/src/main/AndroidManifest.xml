@@ -3,6 +3,8 @@
     package="com.java.torin.listnermodule">
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.VIBRATE"/>
+        <uses-permission android:name = "android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/chill"
@@ -11,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".IntroActivity">
         <intent-filter>
-            <action android:name="android.intent.action.EDIT" />
+            <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
@@ -73,18 +75,26 @@
 
         <activity android:name=".ListenerActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.EDIT" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".ListenerService">
+        <service android:name=".ListsenerIntentService">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </service>
+        <activity android:name=".AlertingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

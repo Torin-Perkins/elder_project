@@ -30,6 +30,7 @@ public class ListenerHelper extends AppCompatActivity{
     String AudioSavePathInDevice = null;
     Random random = new Random();
     String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
+    SignInHelper si;
 
     // Vibrate for 500 milliseconds
 
@@ -104,6 +105,7 @@ public class ListenerHelper extends AppCompatActivity{
         boolean toReturn = false;
         short[]tempBuffer=null;
         int y =0;
+        si = new SignInHelper();
         while(record.getRecordingState()== RECORDSTATE_RECORDING) {
             record.read(buffer, 0, bufferSize);
 
@@ -114,11 +116,11 @@ public class ListenerHelper extends AppCompatActivity{
                     y=0;
                 }
                 y=y+tempBuffer[k];
-                if(y>1053458){
+                if(y>=si.yell){
                     Log.v("Switch","SWITCH");
-                    toReturn = true;
-
-                    break;//return true;
+                   toReturn = true;
+                    return true;
+                    //break;//return true;
 
                 }
                 Log.v("y",""+y);

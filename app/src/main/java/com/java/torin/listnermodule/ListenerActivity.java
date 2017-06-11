@@ -36,6 +36,7 @@ public class ListenerActivity extends AppCompatActivity {
 
 
             stopService(myIntent);
+            startActivity(myIntent2);
         }
     };
     @Override
@@ -47,7 +48,8 @@ public class ListenerActivity extends AppCompatActivity {
 
         start = (Button) findViewById(R.id.button);
         stop= (Button) findViewById(R.id.button2);
-        myIntent = new Intent(this, ListenerService.class);
+        myIntent = new Intent(this, ListsenerIntentService.class);
+        myIntent2 = new Intent(this , AlertingActivity.class);
 
         start.setOnClickListener(listener);
         stop.setOnClickListener(List);
@@ -72,7 +74,9 @@ private final IntentFilter listenerintentfilter = new IntentFilter("name");
 private final BroadcastReceiver listenerbroadcastreceiver= new BroadcastReceiver() {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.v("SERVICE","got = service")
+        stopService(myIntent);
+        startActivity(myIntent2);
+        Log.v("SERVICE","got = service");
     }
 };
 
