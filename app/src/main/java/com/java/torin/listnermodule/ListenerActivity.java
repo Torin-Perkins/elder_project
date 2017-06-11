@@ -4,8 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,8 +21,11 @@ public class ListenerActivity extends AppCompatActivity {
     Button stop;
     Intent myIntent;
     Intent myIntent2;
+    Intent myIntent3;
     ListenerHelper Listener ;
     Vibrator v ;
+
+
     private View.OnClickListener listener = new View.OnClickListener() {
         public void onClick(View v) {
             // do something when the button is clicked
@@ -44,12 +49,22 @@ public class ListenerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listener_activity);
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(listenerbroadcastreceiver,listenerintentfilter);
-
+Listener = new ListenerHelper();
         start = (Button) findViewById(R.id.button);
         stop= (Button) findViewById(R.id.button2);
         myIntent = new Intent(this, ListsenerIntentService.class);
         myIntent2 = new Intent(this , AlertingActivity.class);
+        myIntent3 = new Intent(this , IntroActivity.class);
+//Listener.cycler(myIntent3);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if(!preferences.getBoolean("seen", false)){
+            startActivity(myIntent3);
+        }
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(listenerbroadcastreceiver,listenerintentfilter);
+
+
 
         start.setOnClickListener(listener);
         stop.setOnClickListener(List);
@@ -79,6 +94,13 @@ private final BroadcastReceiver listenerbroadcastreceiver= new BroadcastReceiver
         Log.v("SERVICE","got = service");
     }
 };
-
+    @Override
+    protected void onDestroy() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("seen", false);
+        editor.apply();
+        super.onDestroy();
+    }
 
 }

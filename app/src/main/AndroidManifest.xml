@@ -15,7 +15,7 @@
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.ALTERNATIVE" />
         </intent-filter>
     </activity>
 
@@ -23,7 +23,7 @@
         <intent-filter>
             <action android:name="android.intent.action.EDIT" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.ALTERNATIVE" />
         </intent-filter>
     </activity>
 
@@ -31,7 +31,7 @@
         <intent-filter>
             <action android:name="android.intent.action.EDIT" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.ALTERNATIVE" />
         </intent-filter>
     </activity>
 
@@ -39,7 +39,7 @@
         <intent-filter>
             <action android:name="android.intent.action.EDIT" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.ALTERNATIVE" />
         </intent-filter>
     </activity>
 
@@ -47,14 +47,14 @@
 <intent-filter>
     <action android:name="android.intent.action.EDIT" />
 
-    <category android:name="android.intent.category.LAUNCHER" />
+    <category android:name="android.intent.category.ALTERNATIVE" />
 </intent-filter>
 </activity>
         <activity android:name=".WhisperActivity">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
             </intent-filter>
         </activity>
 
@@ -62,20 +62,20 @@
         <intent-filter>
             <action android:name="android.intent.action.EDIT" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+            <category android:name="android.intent.category.ALTERNATIVE" />
         </intent-filter>
     </activity>
         <activity android:name=".YellActivity">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
             </intent-filter>
         </activity>
 
         <activity android:name=".ListenerActivity">
             <intent-filter>
-                <action android:name="android.intent.action.EDIT" />
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -92,7 +92,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.ALTERNATIVE" />
             </intent-filter>
         </activity>
     </application>

@@ -38,7 +38,7 @@ public class SignInHelper {
     String lastName;
     String Email;
     Boolean Therapist;
-    String TherapistEmail;
+    String TherapistEmail = "";
 
     // Vibrate for 500 milliseconds
 

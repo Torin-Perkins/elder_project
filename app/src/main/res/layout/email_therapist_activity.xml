@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backround_colors">
     <TextView
-        android:text="What is your therapist's email?"
+        android:text="What is your therapist's phone number?"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -28,7 +28,7 @@
         android:layout_marginStart="17dp"
         android:layout_marginTop="22dp"
         android:id="@+id/TherEmail"
-        android:text="Email"/>
+        android:text="Number"/>
 
     <ImageButton
         android:layout_width="match_parent"

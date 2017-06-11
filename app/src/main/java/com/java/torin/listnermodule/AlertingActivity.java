@@ -28,6 +28,7 @@ public class AlertingActivity extends AppCompatActivity {
     EditText messagetEt;
     Button b;
     Intent myIntent;
+    SignInHelper si = new SignInHelper();
     private View.OnClickListener Listener = new View.OnClickListener() {
         public void onClick(View v) {
 
@@ -36,15 +37,22 @@ public class AlertingActivity extends AppCompatActivity {
                     findViewById(R.id.email);
 
             String message = messagetEt.getText().toString();
-            String phoneNo = "5034753414";//mPhoneNoEt.getText().toString();
+            String phoneNo = si.Email;//mPhoneNoEt.getText().toString();
+            String TherPhoneNo = si.TherapistEmail;
 
-            if (!TextUtils.isEmpty(message) && !TextUtils.isEmpty(phoneNo))
+            if (!TextUtils.isEmpty(message) && !TextUtils.isEmpty(phoneNo)&& TextUtils.isEmpty(TherPhoneNo))
 
             {
 
                 SmsManager smsManager = SmsManager.getDefault();
                 smsManager.sendTextMessage(phoneNo, null, message, null, null);
              startActivity(myIntent);
+            }
+            else {
+                SmsManager smsManager = SmsManager.getDefault();
+                smsManager.sendTextMessage(TherPhoneNo, null, message, null, null);
+                smsManager.sendTextMessage(phoneNo, null, message, null, null);
+                startActivity(myIntent);
             }
         }
 

@@ -7,7 +7,7 @@
 
 
     <TextView
-        android:text="What is your Email?"
+        android:text="What is your Phone number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -23,7 +23,7 @@
         android:ems="10"
         android:layout_centerVertical="true"
         android:id="@+id/email"
-        android:text="Email"
+        android:text="Number"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"

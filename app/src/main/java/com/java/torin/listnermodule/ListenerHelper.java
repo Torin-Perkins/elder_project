@@ -32,11 +32,13 @@ public class ListenerHelper extends AppCompatActivity{
     String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
     SignInHelper si;
 
+
     // Vibrate for 500 milliseconds
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     public void runListener(){
@@ -144,5 +146,15 @@ public class ListenerHelper extends AppCompatActivity{
             i++ ;
         }
         return stringBuilder.toString();
+    }
+    int next = 1;
+    public boolean cycler(){
+boolean thing = false;
+        if(next == 1){
+            thing = true;
+
+        }
+
+        return thing;
     }
 }
