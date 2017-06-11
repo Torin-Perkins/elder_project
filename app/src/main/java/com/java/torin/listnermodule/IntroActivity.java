@@ -1,9 +1,12 @@
 package com.java.torin.listnermodule;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +32,7 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         next = (ImageButton) findViewById(R.id.Next);
         myIntent = new Intent(this, NameActivity.class);
         next.setOnClickListener(onClick);
@@ -39,19 +43,20 @@ public class IntroActivity extends AppCompatActivity {
             v.vibrate(1000);
         }
 */
-
+requestForSpecificPermission();
 
 
 
     }
 
-    @Override
-    protected void onStart() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = preferences.edit();
-        preferences.edit().putBoolean("seen",true).apply();
 
-        editor.apply();
-        super.onStart();
+    private void requestForSpecificPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.SEND_SMS, Manifest.permission.READ_SMS,  Manifest.permission.VIBRATE}, 101);
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

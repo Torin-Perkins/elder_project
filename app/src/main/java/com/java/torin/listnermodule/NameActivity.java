@@ -13,7 +13,7 @@ import android.widget.ImageButton;
  */
 
 public class NameActivity extends AppCompatActivity  {
-    SignInHelper s = new SignInHelper();
+    SignInHelper s = SignInHelper.getInstance();
     EditText firstName, lastName;
     ImageButton next;
     Intent myIntent;
@@ -40,27 +40,15 @@ public class NameActivity extends AppCompatActivity  {
         firstName = (EditText) findViewById(R.id.FirstName);
         String newString = firstName.getText().toString();
 
+        return newString;
 
-        while(!newString.isEmpty()  ){
-            if(!newString.equals("First Name") || !newString.isEmpty()){
-                return newString;
-            }
-
-        }
-return null;
     }
     public String getLastName(){
         lastName = (EditText) findViewById(R.id.LastName);
         String newString = lastName.getText().toString();
 
 
-        while(!newString.isEmpty()  ){
-            if(!newString.equals("Last Name") || newString.isEmpty()){
-                return newString;
-            }
-
-        }
-return null;
+      return newString;
     }
 
 

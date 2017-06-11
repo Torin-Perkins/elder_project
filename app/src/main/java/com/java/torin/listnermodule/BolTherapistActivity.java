@@ -13,7 +13,7 @@ import android.widget.ImageButton;
  */
 
 public class BolTherapistActivity extends AppCompatActivity {
-    SignInHelper s = new SignInHelper();
+    SignInHelper s =  SignInHelper.getInstance();
     Button yes;
     Button no;
     Intent myIntent;

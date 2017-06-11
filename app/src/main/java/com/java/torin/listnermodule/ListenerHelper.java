@@ -30,7 +30,7 @@ public class ListenerHelper extends AppCompatActivity{
     String AudioSavePathInDevice = null;
     Random random = new Random();
     String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
-    SignInHelper si;
+    SignInHelper si = SignInHelper.getInstance();
 
 
     // Vibrate for 500 milliseconds

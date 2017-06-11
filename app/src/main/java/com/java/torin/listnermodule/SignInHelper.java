@@ -11,6 +11,7 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.Random;
 
+import javax.inject.Singleton;
 import javax.xml.datatype.Duration;
 
 import static android.media.AudioFormat.CHANNEL_IN_MONO;
@@ -22,7 +23,17 @@ import static android.media.MediaRecorder.AudioSource.MIC;
  * Created by Admin on 5/12/2017.
  */
 
+@Singleton
 public class SignInHelper {
+
+    private static SignInHelper INSTANCE;
+
+    public static SignInHelper getInstance() {
+        if (INSTANCE == null)
+            INSTANCE = new SignInHelper();
+        return INSTANCE;
+    }
+
     int bufferSize;
     AudioRecord record;
     private int minSize = 0;

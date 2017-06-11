@@ -12,7 +12,7 @@ import android.widget.ImageButton;
  */
 
 public class EmailActivity extends AppCompatActivity {
-    SignInHelper s = new SignInHelper();
+    SignInHelper s = SignInHelper.getInstance();
     EditText email;
     ImageButton next;
     Intent myIntent;
@@ -41,12 +41,7 @@ public class EmailActivity extends AppCompatActivity {
         String newString = email.getText().toString();
 
 
-        while(!newString.isEmpty()  ){
-            if(!newString.equals("Email") || !newString.isEmpty()){
-                return newString;
-            }
 
-        }
-        return null;
+        return newString;
     }
 }
