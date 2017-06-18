@@ -36,7 +36,7 @@ public class NormActivity extends AppCompatActivity {
         public void onClick(View v) {
             // do something when the button is clicked
 
-s.stopLis();
+
 
             startActivity(myIntent);
         }

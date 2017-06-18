@@ -48,7 +48,12 @@ public class ListenerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listener_activity);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
 
+
+        editor.putBoolean("Service", false);
+        editor.apply();
 Listener = new ListenerHelper();
         start = (Button) findViewById(R.id.button);
         stop= (Button) findViewById(R.id.button2);
@@ -56,11 +61,12 @@ Listener = new ListenerHelper();
         myIntent2 = new Intent(this , AlertingActivity.class);
         myIntent3 = new Intent(this , IntroActivity.class);
 //Listener.cycler(myIntent3);
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         if(!preferences.getBoolean("seen", false)){
             startActivity(myIntent3);
         }
+
 
         LocalBroadcastManager.getInstance(this).registerReceiver(listenerbroadcastreceiver,listenerintentfilter);
 

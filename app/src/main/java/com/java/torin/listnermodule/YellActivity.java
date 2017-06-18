@@ -38,7 +38,7 @@ public class YellActivity extends AppCompatActivity {
             // do something when the button is clicked
 
 
-            s.stopLis();
+
             startActivity(myIntent);
         }
     };

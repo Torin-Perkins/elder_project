@@ -102,18 +102,21 @@ public class ListenerHelper extends AppCompatActivity{
         boolean toReturn = false;
         short[]tempBuffer=null;
         int y =0;
-        si = new SignInHelper();
+
         while(record.getRecordingState()== RECORDSTATE_RECORDING) {
             record.read(buffer, 0, bufferSize);
 
-            Log.v("READ",""+ Arrays.toString(buffer));
             for(int k=0;k<800;k++){
                 if (k == 0) {
                     tempBuffer =buffer;
                     y=0;
                 }
                 y=y+tempBuffer[k];
-                if(y>=si.yell){
+
+                Log.v("y",""+y);
+                Log.v("k",""+k);
+                Log.v("THING", ""+si.yell);
+                if(y>Math.abs(si.yell)){
                     Log.v("Switch","SWITCH");
                    toReturn = true;
                     return true;

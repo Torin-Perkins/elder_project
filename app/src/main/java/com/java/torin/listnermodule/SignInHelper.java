@@ -1,9 +1,11 @@
 package com.java.torin.listnermodule;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
@@ -24,7 +26,7 @@ import static android.media.MediaRecorder.AudioSource.MIC;
  */
 
 @Singleton
-public class SignInHelper {
+public class SignInHelper extends AppCompatActivity{
 
     private static SignInHelper INSTANCE;
 
@@ -35,7 +37,7 @@ public class SignInHelper {
     }
 
     int bufferSize;
-    AudioRecord record;
+    AudioRecord record ;
     private int minSize = 0;
     short[] buffer = new short[bufferSize];
     String AudioSavePathInDevice = null;
@@ -100,7 +102,7 @@ public class SignInHelper {
 
 
         Log.v("READ", "" + Arrays.toString(buffer));
-        while(record.getRecordingState()== RECORDSTATE_RECORDING) {
+        for(int j = 0; j < 30;j++) {
             record.read(buffer, 0, bufferSize);
             for (int k = 0; k < 800; k++) {
                 if (k == 0) {
@@ -108,11 +110,12 @@ public class SignInHelper {
                     y=0;
                 }
                 y = y + tempBuffer[k];
-                if(Math.abs(y)>=i){
+                if(Math.abs(y)>i){
                     i=y;
                 }
 
                 Log.v("y", "" + i);
+                Log.v("j", "" + j);
             }
 
 
@@ -131,6 +134,8 @@ public class SignInHelper {
     }
     public void getYell(){
         yell=getRec();
+        Log.v("THING", ""+yell);
+
     }
     public void calcValForThresh(){
         Threshold=normal + whisper;

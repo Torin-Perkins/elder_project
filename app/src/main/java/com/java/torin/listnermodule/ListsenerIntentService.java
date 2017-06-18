@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Vibrator;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.LocalBroadcastManager;
+import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by Admin on 6/8/2017.
@@ -26,6 +28,7 @@ public class ListsenerIntentService extends IntentService {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onHandleIntent(Intent intent) {
+        Toast.makeText(getApplicationContext(),"Service started",Toast.LENGTH_SHORT).show();
         at=new AudioTimestamp();
         intent = new Intent(this, AlertingActivity.class);
         Listener = new ListenerHelper();
