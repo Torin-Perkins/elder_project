@@ -4,17 +4,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/backround_colors">
     <TextView
-        android:text="Will you please press start and put your phone in you pocket and speak in a angry yell"
+        android:text="Now lets get some yelling information...Please place your device 5 feet away and yell this sentence after you push calibrate: Give it to me! I said right now!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:id="@+id/textView4"
-        android:textSize="50sp"
+        android:textSize="32sp"
         android:fontFamily="sans-serif"
         android:layout_alignParentTop="true" />
 
     <Button
-        android:text="Start"
+        android:text="Calibrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"

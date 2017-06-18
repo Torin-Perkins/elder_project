@@ -42,7 +42,7 @@ public class BolTherapistActivity extends AppCompatActivity {
         yes = (Button) findViewById(R.id.yes);
         no= (Button) findViewById(R.id.no);
         myIntent = new Intent(this, TherapistEmailActivity.class);
-        myIntent2 = new Intent(this, WhisperActivity.class);
+        myIntent2 = new Intent(this, NormActivity.class);
         yes.setOnClickListener(Listener);
         no.setOnClickListener(List);
 

@@ -27,9 +27,8 @@ public class NormActivity extends AppCompatActivity {
 
 
     s.getNorm();
-            b = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            b.vibrate(2000);
-            Toast.makeText(getApplicationContext(),"Done listening please press next",Toast.LENGTH_SHORT).show();
+
+
 
         }
     };
@@ -37,7 +36,7 @@ public class NormActivity extends AppCompatActivity {
         public void onClick(View v) {
             // do something when the button is clicked
 
-
+s.stopLis();
 
             startActivity(myIntent);
         }

@@ -3,9 +3,12 @@ package com.java.torin.listnermodule;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.text.TextUtils;
@@ -51,12 +54,16 @@ public class AlertingActivity extends AppCompatActivity {
         }
 
     };
+        @RequiresApi(api = Build.VERSION_CODES.N)
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.alert_activity);
             myIntent = new Intent(this,ListenerActivity.class);
             b = (Button) findViewById(R.id.button3);
             v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            Calendar c= Calendar.getInstance();
+            int minutes = c.get(Calendar.MINUTE);
+            Log.v("MIN",""+ minutes);
             v.vibrate(3000);
             b.setOnClickListener(Listener);
         }

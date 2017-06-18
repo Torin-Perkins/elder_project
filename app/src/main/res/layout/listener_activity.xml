@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backround_colors">
     <TextView
-        android:text="Press start to activate listening"
+        android:text="Press start to begin CHILL Press Start.          To end CHILL press stop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -27,7 +27,7 @@
         android:background="@drawable/backround_colors"/>
 
     <Button
-        android:text="Next"
+        android:text="Stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/button"

@@ -13,30 +13,17 @@
     tools:context="com.java.torin.listnermodule.IntroActivity">
 
     <TextView
-        android:text="Chill"
+        android:text="CHILL has recognized a stressful event. Please decribe what happened. CHILL will restart in 5 minutes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:id="@+id/textView4"
-        android:textSize="50sp"
+        android:textSize="32sp"
         android:fontFamily="sans-serif"
         android:layout_alignParentTop="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="text|textNoSuggestions|textEmailAddress"
-        android:ems="10"
-        android:id="@+id/email"
-        android:text="Tell me whats going on:"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <Button
-        android:text="Ok I'm good"
+        android:text="Send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
@@ -44,6 +31,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp"
         android:background="@drawable/backround_colors"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/email"
+        android:text="Tell me whats going on:"
+        android:inputType="text"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

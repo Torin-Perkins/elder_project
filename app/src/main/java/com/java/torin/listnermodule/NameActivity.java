@@ -31,7 +31,7 @@ public class NameActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_in_activity);
         next = (ImageButton) findViewById(R.id.Next);
-        myIntent = new Intent(this, EmailActivity.class);
+        myIntent = new Intent(this, NormActivity.class);
         next.setOnClickListener(Listener);
 
 

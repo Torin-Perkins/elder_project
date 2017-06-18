@@ -82,15 +82,12 @@ public class SignInHelper {
 
     private void stop(AudioRecord record) {
         record.stop();
+        record.release();
 
     }
 
     protected boolean recordingState() {
-        if (record.getRecordingState() == RECORDSTATE_RECORDING) {
-            return true;
-        } else {
-            return false;
-        }
+        return record.getRecordingState() == RECORDSTATE_RECORDING;
     }
 
     public int getRec() {
@@ -103,7 +100,7 @@ public class SignInHelper {
 
 
         Log.v("READ", "" + Arrays.toString(buffer));
-        for (int j=0;j<30;j++) {
+        while(record.getRecordingState()== RECORDSTATE_RECORDING) {
             record.read(buffer, 0, bufferSize);
             for (int k = 0; k < 800; k++) {
                 if (k == 0) {

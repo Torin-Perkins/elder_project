@@ -69,12 +69,7 @@ public class ListenerHelper extends AppCompatActivity{
         record.release();
     }
     protected boolean recordingState(){
-        if(record.getRecordingState() == RECORDSTATE_RECORDING){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return record.getRecordingState() == RECORDSTATE_RECORDING;
     }
     private void read(AudioRecord record){
          buffer = new short[bufferSize];
