@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 
 public class NameActivity extends AppCompatActivity  {
     SignInHelper s = SignInHelper.getInstance();
-    EditText firstName, lastName;
+    EditText firstName, phone;
     ImageButton next;
     Intent myIntent;
 
@@ -23,13 +23,13 @@ public class NameActivity extends AppCompatActivity  {
             // do something when the button is clicked
 
             s.firstName = getFirstName();
-            s.lastName = getLastName();
+            s.Email = getLastName();
             startActivity(myIntent);
         }
     };
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.name_activity);
+        setContentView(R.layout.sign_in_activity);
         next = (ImageButton) findViewById(R.id.Next);
         myIntent = new Intent(this, EmailActivity.class);
         next.setOnClickListener(Listener);
@@ -37,15 +37,15 @@ public class NameActivity extends AppCompatActivity  {
 
     }
     public String getFirstName(){
-        firstName = (EditText) findViewById(R.id.FirstName);
+        firstName = (EditText) findViewById(R.id.editText);
         String newString = firstName.getText().toString();
 
         return newString;
 
     }
     public String getLastName(){
-        lastName = (EditText) findViewById(R.id.LastName);
-        String newString = lastName.getText().toString();
+        phone = (EditText) findViewById(R.id.editText2);
+        String newString = phone.getText().toString();
 
 
       return newString;
