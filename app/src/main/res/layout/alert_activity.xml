@@ -13,7 +13,7 @@
     tools:context="com.java.torin.listnermodule.IntroActivity">
 
     <TextView
-        android:text="CHILL has recognized a stressful event. Please decribe what happened. CHILL will restart in 5 minutes"
+        android:text="CHILL has recognized a stressful event. Please decribe what happened. "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:id="@+id/email"
-        android:text="Tell me whats going on:"
+        android:text=""
         android:inputType="text"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
