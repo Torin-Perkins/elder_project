@@ -36,7 +36,7 @@ public class AlertingActivity extends AppCompatActivity {
     SignInHelper si =  SignInHelper.getInstance();
     String message;
 
-        @RequiresApi(api = Build.VERSION_CODES.N)
+
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.alert_activity);
@@ -45,16 +45,20 @@ public class AlertingActivity extends AppCompatActivity {
             myIntent = new Intent(this,ListenerActivity.class);
             b = (Button) findViewById(R.id.button3);
             v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            Calendar c= Calendar.getInstance();
-            int minutes = c.get(Calendar.MINUTE);
-            Log.v("MIN",""+ minutes);
+            //Calendar c= Calendar.getInstance();
+          //  int minutes = c.get(Calendar.MINUTE);
+           // Log.v("MIN",""+ minutes);
             v.vibrate(3000);
 
             messagetEt = (EditText)
 
                     findViewById(R.id.email);
 
-             message = si.firstName + "has shown stress:"+messagetEt.getText().toString();
+             message = si.firstName + "has shown stress";
+
+            SmsManager smsManager = SmsManager.getDefault();
+            smsManager.sendTextMessage(si.Email, null, message, null, null);
+            message = messagetEt.getText().toString();
 
             b.setOnClickListener(Listener);
         }

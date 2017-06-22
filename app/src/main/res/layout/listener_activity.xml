@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backround_colors">
@@ -13,29 +14,29 @@
         android:fontFamily="sans-serif"
         android:layout_alignParentTop="true" />
 
-    <Button
-        android:text="Start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@android:drawable/ic_media_play"
         android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="56dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="35dp"
-        android:id="@+id/button"
+        android:layout_marginTop="63dp"
+        android:id="@+id/Button"
         android:background="@drawable/backround_colors"/>
 
-    <Button
-        android:text="Stop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/button"
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@android:drawable/checkbox_off_background"
+        android:id="@+id/Button2"
+        android:layout_alignTop="@+id/Button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="54dp"
-        android:layout_marginEnd="54dp"
-        android:id="@+id/button2"
+        android:layout_marginRight="84dp"
+        android:layout_marginEnd="84dp"
         android:background="@drawable/backround_colors"/>
 
 
