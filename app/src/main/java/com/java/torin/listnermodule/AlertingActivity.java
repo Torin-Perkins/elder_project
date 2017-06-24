@@ -54,11 +54,11 @@ public class AlertingActivity extends AppCompatActivity {
 
                     findViewById(R.id.email);
 
-             message = si.firstName + "has shown stress";
+             message = si.firstName + " has shown stress";
 
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(si.Email, null, message, null, null);
-            message = messagetEt.getText().toString();
+
 
             b.setOnClickListener(Listener);
         }
@@ -68,7 +68,7 @@ public class AlertingActivity extends AppCompatActivity {
         public void onClick(View v) {
 
 
-
+            message = messagetEt.getText().toString() + " ";
 
             Log.v("Phone",""+si.Email);
             SmsManager smsManager = SmsManager.getDefault();
@@ -82,4 +82,19 @@ public class AlertingActivity extends AppCompatActivity {
 
     };
 }
+
+
+
+
+
+/*
+TODO
+
+
+UI changes
+    Logo as button
+    change text/grammar
+    talk to kristina about UI
+
+ */
 

@@ -12,20 +12,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.java.torin.listnermodule.IntroActivity">
 
-    <ImageButton
-
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:srcCompat="@android:drawable/checkbox_on_background"
-        android:id="@+id/Next"
-        android:background="@drawable/backround_colors"
-        android:layout_weight="0.45"
-
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="30dp" />
-
     <TextView
         android:text="Thank you for choosing CHILL to help you understand and manage behavior related to stress. CHILL will listen to your voice pattern and alert you when stress is indicated. You will be given the opportunity to describe the event and receive a text message. In addition to basic information CHILL ask you to calibrate you voice. Please click next to get started."
         android:layout_width="wrap_content"
@@ -33,6 +19,21 @@
         android:id="@+id/textView3"
         android:textSize="24sp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        app:srcCompat="@drawable/chill"
+        android:id="@+id/Next"
+        android:background="@drawable/backround_colors"
+        android:layout_weight="0.45"
+
+        android:elevation="0dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

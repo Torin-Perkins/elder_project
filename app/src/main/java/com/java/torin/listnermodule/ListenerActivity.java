@@ -13,12 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class ListenerActivity extends AppCompatActivity {
 
 
-    Button start;
-    Button stop;
+    ImageButton start;
+    ImageButton stop;
     Intent myIntent;
     Intent myIntent2;
     Intent myIntent3;
@@ -55,8 +56,8 @@ public class ListenerActivity extends AppCompatActivity {
         editor.putBoolean("Service", false);
         editor.apply();
 Listener = new ListenerHelper();
-        start = (Button) findViewById(R.id.button);
-        stop= (Button) findViewById(R.id.button2);
+        start = (ImageButton) findViewById(R.id.Button);
+        stop= (ImageButton) findViewById(R.id.Button2);
         myIntent = new Intent(this, ListsenerIntentService.class);
         myIntent2 = new Intent(this , AlertingActivity.class);
         myIntent3 = new Intent(this , IntroActivity.class);

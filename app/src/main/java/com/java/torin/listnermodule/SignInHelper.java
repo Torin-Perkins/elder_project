@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
@@ -92,13 +93,14 @@ public class SignInHelper extends AppCompatActivity{
         return record.getRecordingState() == RECORDSTATE_RECORDING;
     }
 
-    public int getRec() {
+    public int getRec(TextView t) {
         runListener();
         buffer = new short[bufferSize];
 
         short[] tempBuffer = null;
         int y = 0;
         int i = 0;
+        int o = 30;
 
 
         Log.v("READ", "" + Arrays.toString(buffer));
@@ -110,6 +112,7 @@ public class SignInHelper extends AppCompatActivity{
                     y=0;
                 }
                 y = y + tempBuffer[k];
+                t.setText("Seconds remaining: " + o);
                 if(Math.abs(y)>i){
                     i=y;
                 }
@@ -126,14 +129,14 @@ public class SignInHelper extends AppCompatActivity{
         return i;
     }
 
-    public void getWhisper(){
-        whisper=getRec();
+    public void getWhisper(TextView t){
+        whisper=getRec(t);
     }
-    public void getNorm(){
-        normal=getRec();
+    public void getNorm(TextView t){
+        normal=getRec(t);
     }
-    public void getYell(){
-        yell=getRec();
+    public void getYell(TextView t){
+        yell=getRec(t);
         Log.v("THING", ""+yell);
 
     }
