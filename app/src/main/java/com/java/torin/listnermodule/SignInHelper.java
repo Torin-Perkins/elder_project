@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -93,32 +94,50 @@ public class SignInHelper extends AppCompatActivity{
         return record.getRecordingState() == RECORDSTATE_RECORDING;
     }
 
-    public int getRec(TextView t) {
+
+    public int getRec(final TextView t) {
         runListener();
         buffer = new short[bufferSize];
 
         short[] tempBuffer = null;
         int y = 0;
         int i = 0;
-        int o = 30;
 
+        CountDownTimer ct = new CountDownTimer(20000, 1000) {
+
+            @Override
+            public void onTick(long l) {
+                t.setText("seconds remaining: " + l/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                t.setText("done!");
+            }
+        };
 
         Log.v("READ", "" + Arrays.toString(buffer));
         for(int j = 0; j < 30;j++) {
+            if(j==1){
+                ct.start();
+            }
             record.read(buffer, 0, bufferSize);
+
             for (int k = 0; k < 800; k++) {
                 if (k == 0) {
                     tempBuffer = buffer;
                     y=0;
                 }
                 y = y + tempBuffer[k];
-                t.setText("Seconds remaining: " + o);
+
                 if(Math.abs(y)>i){
                     i=y;
                 }
 
                 Log.v("y", "" + i);
                 Log.v("j", "" + j);
+
+
             }
 
 
@@ -128,6 +147,57 @@ public class SignInHelper extends AppCompatActivity{
 
         return i;
     }
+
+  /*  public int getRecSingle(final TextView t){
+        runListener();
+        buffer = new short[bufferSize];
+
+        short[] tempBuffer = null;
+        int y = 0;
+        int i = 0;
+
+        CountDownTimer ct = new CountDownTimer(30000, 1000) {
+
+            @Override
+            public void onTick(long l) {
+                t.setText("seconds remaining: " + l/1000);
+            }
+
+            @Override
+            public void onFinish() {
+                t.setText("done!");
+            }
+        };
+        ct.start();
+
+        record.read(buffer, 0, bufferSize);
+        Log.v("READ", "" + Arrays.toString(buffer));
+
+
+            for (int k = 0; k < 800; k++) {
+                if (k == 0) {
+                    tempBuffer = buffer;
+                    y=0;
+                }
+                y = y + tempBuffer[k];
+
+                if(Math.abs(y)>i){
+                    i=y;
+                }
+
+                Log.v("y", "" + i);
+                Log.v("j", "" + j);
+
+
+            }
+
+
+        }
+
+        stopLis();
+
+        return i;
+    }*/
 
     public void getWhisper(TextView t){
         whisper=getRec(t);

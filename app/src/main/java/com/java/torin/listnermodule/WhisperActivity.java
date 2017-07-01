@@ -26,7 +26,7 @@ public class WhisperActivity extends AppCompatActivity {
 
 
 
-    s.getWhisper();
+   // s.getWhisper();
             b = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             b.vibrate(2000);
             Toast.makeText(getApplicationContext(),"Done listening please press next",Toast.LENGTH_SHORT).show();

@@ -24,11 +24,12 @@ public class ListsenerIntentService extends IntentService {
     ListenerHelper Listener ;
     Vibrator v ;
     AudioTimestamp at;
-
+    Toast toast;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onHandleIntent(Intent intent) {
-        Toast.makeText(getApplicationContext(),"Service started",Toast.LENGTH_SHORT).show();
+        toast = Toast.makeText(getApplicationContext(),"Service started",Toast.LENGTH_SHORT);
+        toast.show();
         at=new AudioTimestamp();
         intent = new Intent(this, AlertingActivity.class);
         Listener = new ListenerHelper();
@@ -36,7 +37,9 @@ public class ListsenerIntentService extends IntentService {
         Listener.runListener();
         if(Listener.isOverLis()){
             //Listener.record.getTimestamp(at,AudioTimestamp.TIMEBASE_MONOTONIC);
+            toast.cancel();
             Listener.stopLis();
+
            // v.vibrate(3000);
             //startActivity(intent);
             Intent localIntent = new Intent("name");

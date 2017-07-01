@@ -38,5 +38,13 @@
         android:id="@+id/button2"
         android:background="@drawable/backround_colors"/>
 
+    <TextView
+        android:text=" "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView2" />
+
 
 </RelativeLayout>

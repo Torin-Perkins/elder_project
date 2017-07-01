@@ -8,6 +8,7 @@ import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -19,6 +20,7 @@ public class NormActivity extends AppCompatActivity {
     Button yes;
     Button no;
     Intent myIntent;
+    TextView t;
     Vibrator b ;
 
     private View.OnClickListener Listener = new View.OnClickListener() {
@@ -27,7 +29,7 @@ public class NormActivity extends AppCompatActivity {
 
 
 
-    s.getNorm();
+    s.getNorm(t);
 
 
 
@@ -49,8 +51,10 @@ public class NormActivity extends AppCompatActivity {
         yes = (Button) findViewById(R.id.button);
         no= (Button) findViewById(R.id.button2);
         myIntent = new Intent(this, YellActivity.class);
+        t = (TextView) findViewById(R.id.textView2);
         yes.setOnClickListener(Listener);
         no.setOnClickListener(List);
+
 
 
     }

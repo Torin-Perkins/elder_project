@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -21,6 +22,8 @@ public class YellActivity extends AppCompatActivity {
     Button no;
     Intent myIntent;
     Vibrator b ;
+    TextView t;
+
 
     private View.OnClickListener Listener = new View.OnClickListener() {
         public void onClick(View v) {
@@ -28,7 +31,8 @@ public class YellActivity extends AppCompatActivity {
 
 
 
-    s.getYell();
+    //
+             s.getYell(t);
 
 
         }
@@ -48,6 +52,7 @@ public class YellActivity extends AppCompatActivity {
         yes = (Button) findViewById(R.id.button);
         no= (Button) findViewById(R.id.button2);
         myIntent = new Intent(this, ListenerActivity.class);
+        t = (TextView) findViewById(R.id.textView7);
         yes.setOnClickListener(Listener);
         no.setOnClickListener(List);
 
