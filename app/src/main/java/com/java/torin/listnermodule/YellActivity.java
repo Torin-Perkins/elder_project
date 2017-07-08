@@ -60,11 +60,13 @@ public class YellActivity extends AppCompatActivity {
     }
     @Override
     protected void onStart() {
+        /*
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = preferences.edit();
+        //SharedPreferences.Editor editor = preferences.edit();
         preferences.edit().putBoolean("seen",true).apply();
-
-        editor.apply();
+*/
+        s.setAct = true;
+       // editor.apply();
         super.onStart();
     }
 

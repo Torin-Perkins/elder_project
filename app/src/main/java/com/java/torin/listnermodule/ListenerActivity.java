@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 
 public class ListenerActivity extends AppCompatActivity {
 
-
+    SignInHelper s =  SignInHelper.getInstance();
     ImageButton start;
     ImageButton stop;
     Intent myIntent;
@@ -25,6 +25,7 @@ public class ListenerActivity extends AppCompatActivity {
     Intent myIntent3;
     ListenerHelper Listener ;
     Vibrator v ;
+
 
 
     private View.OnClickListener listener = new View.OnClickListener() {
@@ -61,10 +62,13 @@ Listener = new ListenerHelper();
         myIntent = new Intent(this, ListsenerIntentService.class);
         myIntent2 = new Intent(this , AlertingActivity.class);
         myIntent3 = new Intent(this , IntroActivity.class);
+
+        editor.putBoolean("seen", false);
+        editor.apply();
 //Listener.cycler(myIntent3);
         //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        if(!preferences.getBoolean("seen", false)){
+        if(!s.setAct){
             startActivity(myIntent3);
         }
 
@@ -103,10 +107,7 @@ private final BroadcastReceiver listenerbroadcastreceiver= new BroadcastReceiver
 };
     @Override
     protected void onDestroy() {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean("seen", false);
-        editor.apply();
+
         super.onDestroy();
     }
 

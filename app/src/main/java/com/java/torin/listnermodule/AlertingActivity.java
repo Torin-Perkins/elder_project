@@ -35,6 +35,7 @@ public class AlertingActivity extends AppCompatActivity {
     Intent myIntent;
     SignInHelper si =  SignInHelper.getInstance();
     String message;
+    Toast toast;
 
 
         protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +58,13 @@ public class AlertingActivity extends AppCompatActivity {
              message = si.firstName + " has shown stress";
 
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(si.Email, null, message, null, null);
-
+            try {
+                smsManager.sendTextMessage(si.Email, null, message, null, null);
+            }
+            catch (IllegalArgumentException e){
+                toast = Toast.makeText(getApplicationContext(),"Invalid Phone Number please",Toast.LENGTH_SHORT);
+                toast.show();
+            }
 
             b.setOnClickListener(Listener);
         }

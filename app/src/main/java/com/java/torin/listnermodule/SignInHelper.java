@@ -54,6 +54,7 @@ public class SignInHelper extends AppCompatActivity{
     String Email;
     Boolean Therapist;
     String TherapistEmail = "";
+    boolean setAct = false;
 
     // Vibrate for 500 milliseconds
 
