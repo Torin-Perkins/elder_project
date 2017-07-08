@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backround_colors">
     <TextView
-        android:text="Now lets get some yelling information...Please place your device 5 feet away and yell this sentence after you push calibrate: Give it to me! I said right now!"
+        android:text="Now lets get some yelling information...This will take about 10 seconds. Please place your device 5 feet away and yell this sentence after you push calibrate: Give it to me! I said right now!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -39,7 +39,7 @@
         android:background="@drawable/backround_colors"/>
 
     <TextView
-        android:text="TextView"
+        android:text=" "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button"

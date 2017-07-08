@@ -104,24 +104,11 @@ public class SignInHelper extends AppCompatActivity{
         int y = 0;
         int i = 0;
 
-        CountDownTimer ct = new CountDownTimer(20000, 1000) {
 
-            @Override
-            public void onTick(long l) {
-                t.setText("seconds remaining: " + l/1000);
-            }
-
-            @Override
-            public void onFinish() {
-                t.setText("done!");
-            }
-        };
 
         Log.v("READ", "" + Arrays.toString(buffer));
         for(int j = 0; j < 30;j++) {
-            if(j==1){
-                ct.start();
-            }
+
             record.read(buffer, 0, bufferSize);
 
             for (int k = 0; k < 800; k++) {

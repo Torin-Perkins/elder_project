@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backround_colors">
     <TextView
-        android:text="Now lets get some voice information...Please place your device 5 feet away and read this sentence after you push calibrate: the flaxen haired girl, fresh from an adventure, boasted loudly with excessive zeal"
+        android:text="Now lets get some voice information...This will take about 10 seconds. Please place your device 5 feet away and read this sentence after you push calibrate: the flaxen haired girl, fresh from an adventure, boasted loudly with excessive zeal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

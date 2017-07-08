@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -31,6 +32,7 @@ public class ListenerHelper extends AppCompatActivity{
     Random random = new Random();
     String RandomAudioFileName = "ABCDEFGHIJKLMNOP";
     SignInHelper si = SignInHelper.getInstance();
+//    Intent intent= new Intent(this , IntroActivity.class);
 
 
     // Vibrate for 500 milliseconds
@@ -97,7 +99,7 @@ public class ListenerHelper extends AppCompatActivity{
     }
 
 
-    public boolean isOverLis(){
+    public boolean isOverLis(Toast i){
         buffer = new short[bufferSize];
         boolean toReturn = false;
         short[]tempBuffer=null;
@@ -116,13 +118,16 @@ public class ListenerHelper extends AppCompatActivity{
                 Log.v("y",""+y);
                 Log.v("k",""+k);
                 Log.v("THING", ""+si.yell);
-                if(y>Math.abs(si.yell)){
-                    Log.v("Switch","SWITCH");
-                   toReturn = true;
-                    return true;
-                    //break;//return true;
+                if(Math.abs(si.yell)!= 0) {
+                    if (y > Math.abs(si.yell)) {
+                        Log.v("Switch", "SWITCH");
+                        toReturn = true;
+                        return true;
+                        //break;//return true;
 
+                    }
                 }
+
                 Log.v("y",""+y);
             }
         }

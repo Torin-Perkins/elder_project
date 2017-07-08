@@ -64,11 +64,11 @@ Intent intent;
         Listener = new ListenerHelper();
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         Listener.runListener();
-        if(Listener.isOverLis()){
+      //  if(Listener.isOverLis(intent)){
             startActivity(intent);
         }
 
-    }
+  //  }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {

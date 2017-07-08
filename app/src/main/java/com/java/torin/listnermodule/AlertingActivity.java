@@ -36,12 +36,14 @@ public class AlertingActivity extends AppCompatActivity {
     SignInHelper si =  SignInHelper.getInstance();
     String message;
     Toast toast;
+    Intent myIntent3;
 
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.alert_activity);
 
+            myIntent3 = new Intent(this , IntroActivity.class);
 
             myIntent = new Intent(this,ListenerActivity.class);
             b = (Button) findViewById(R.id.button3);
@@ -62,8 +64,9 @@ public class AlertingActivity extends AppCompatActivity {
                 smsManager.sendTextMessage(si.Email, null, message, null, null);
             }
             catch (IllegalArgumentException e){
-                toast = Toast.makeText(getApplicationContext(),"Invalid Phone Number please",Toast.LENGTH_SHORT);
+                toast = Toast.makeText(getApplicationContext(),"Invalid Phone Number please try again",Toast.LENGTH_SHORT);
                 toast.show();
+                startActivity(myIntent3);
             }
 
             b.setOnClickListener(Listener);

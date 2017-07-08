@@ -25,6 +25,7 @@ public class ListenerActivity extends AppCompatActivity {
     Intent myIntent3;
     ListenerHelper Listener ;
     Vibrator v ;
+    Button res;
 
 
 
@@ -46,6 +47,14 @@ public class ListenerActivity extends AppCompatActivity {
             startActivity(myIntent2);
         }
     };
+    private View.OnClickListener re = new View.OnClickListener() {
+        public void onClick(View v) {
+            // do something when the button is clicked
+
+            stopService(myIntent);
+            startActivity(myIntent3);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +65,10 @@ public class ListenerActivity extends AppCompatActivity {
 
         editor.putBoolean("Service", false);
         editor.apply();
-Listener = new ListenerHelper();
+        Listener = new ListenerHelper();
         start = (ImageButton) findViewById(R.id.Button);
         stop= (ImageButton) findViewById(R.id.Button2);
+        res = (Button) findViewById(R.id.button4);
         myIntent = new Intent(this, ListsenerIntentService.class);
         myIntent2 = new Intent(this , AlertingActivity.class);
         myIntent3 = new Intent(this , IntroActivity.class);
@@ -79,6 +89,7 @@ Listener = new ListenerHelper();
 
         start.setOnClickListener(listener);
         stop.setOnClickListener(List);
+        res.setOnClickListener(re);
        /*
         Listener = new ListenerHelper();
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

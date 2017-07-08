@@ -25,17 +25,19 @@ public class ListsenerIntentService extends IntentService {
     Vibrator v ;
     AudioTimestamp at;
     Toast toast;
+    Intent myIntent3;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onHandleIntent(Intent intent) {
         toast = Toast.makeText(getApplicationContext(),"Service started",Toast.LENGTH_SHORT);
         toast.show();
         at=new AudioTimestamp();
+        myIntent3 = new Intent(this , IntroActivity.class);
         intent = new Intent(this, AlertingActivity.class);
         Listener = new ListenerHelper();
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         Listener.runListener();
-        if(Listener.isOverLis()){
+        if(Listener.isOverLis(toast)){
             //Listener.record.getTimestamp(at,AudioTimestamp.TIMEBASE_MONOTONIC);
             toast.cancel();
             Listener.stopLis();
