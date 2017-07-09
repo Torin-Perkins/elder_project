@@ -32,7 +32,7 @@ public class YellActivity extends AppCompatActivity {
 
 
     //
-             s.getYell(t);
+             s.getYell(t,getApplicationContext());
 
 
         }
@@ -59,15 +59,15 @@ public class YellActivity extends AppCompatActivity {
 
     }
     @Override
-    protected void onStart() {
-        /*
+    protected void onDestroy() {
+
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         //SharedPreferences.Editor editor = preferences.edit();
-        preferences.edit().putBoolean("seen",true).apply();
-*/
+        preferences.edit().putBoolean("seen",false).apply();
+
         s.setAct = true;
        // editor.apply();
-        super.onStart();
+        super.onDestroy();
     }
 
 

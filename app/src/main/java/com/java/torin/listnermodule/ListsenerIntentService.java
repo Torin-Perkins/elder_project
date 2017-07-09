@@ -21,11 +21,12 @@ public class ListsenerIntentService extends IntentService {
         super("ListenerIntentService");
     }
 
-    ListenerHelper Listener ;
+    ListenerHelper Listener = new ListenerHelper();
     Vibrator v ;
     AudioTimestamp at;
     Toast toast;
     Intent myIntent3;
+    Boolean stop=false;
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onHandleIntent(Intent intent) {
@@ -37,9 +38,11 @@ public class ListsenerIntentService extends IntentService {
         Listener = new ListenerHelper();
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         Listener.runListener();
-        if(Listener.isOverLis(toast)){
+        if(Listener.isOverLis(toast,getApplicationContext())){
             //Listener.record.getTimestamp(at,AudioTimestamp.TIMEBASE_MONOTONIC);
-            toast.cancel();
+            stop=true;
+            Log.i("STOP",""+stop);
+
             Listener.stopLis();
 
            // v.vibrate(3000);
@@ -48,5 +51,17 @@ public class ListsenerIntentService extends IntentService {
             LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
         }
     }
+
+    public void onDestroy(){
+        Listener.getValidSampleRates();
+
+        super.onDestroy();
+        Log.i("STOP",""+stop);
+        if(!stop)
+             { Listener.stopLis();
+             //Listener.release();
+             }
+    }
+
 
 }

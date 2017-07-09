@@ -2,11 +2,13 @@ package com.java.torin.listnermodule;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
@@ -50,10 +52,13 @@ public class ListenerHelper extends AppCompatActivity{
     }
     public void stopLis(){
         stop(record);
+
     }
+public void release(){
+    record.release();
+}
 
-
-    private void getValidSampleRates() {
+    public void getValidSampleRates() {
         for (int rate : new int[] {8000, 11025, 16000, 22050, 44100}) {  // add the rates you wish to check against
             bufferSize = AudioRecord.getMinBufferSize(rate, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
             if (bufferSize > 0) {
@@ -68,7 +73,7 @@ public class ListenerHelper extends AppCompatActivity{
         record.startRecording();
     }
     private void stop(AudioRecord record){ record.stop();
-        record.release();
+
     }
     protected boolean recordingState(){
         return record.getRecordingState() == RECORDSTATE_RECORDING;
@@ -99,12 +104,13 @@ public class ListenerHelper extends AppCompatActivity{
     }
 
 
-    public boolean isOverLis(Toast i){
+    public boolean isOverLis(Toast i,Context context){
         buffer = new short[bufferSize];
         boolean toReturn = false;
         short[]tempBuffer=null;
         int y =0;
-
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        int yell = settings.getInt("YELL", 0);
         while(record.getRecordingState()== RECORDSTATE_RECORDING) {
             record.read(buffer, 0, bufferSize);
 
@@ -117,9 +123,9 @@ public class ListenerHelper extends AppCompatActivity{
 
                 Log.v("y",""+y);
                 Log.v("k",""+k);
-                Log.v("THING", ""+si.yell);
-                if(Math.abs(si.yell)!= 0) {
-                    if (y > Math.abs(si.yell)) {
+                Log.v("THING", ""+yell);
+                if(Math.abs(yell)!= 0) {
+                    if (y > Math.abs(yell)) {
                         Log.v("Switch", "SWITCH");
                         toReturn = true;
                         return true;

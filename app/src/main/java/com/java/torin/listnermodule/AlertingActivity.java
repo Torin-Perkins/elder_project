@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.icu.util.Calendar;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,33 +39,46 @@ public class AlertingActivity extends AppCompatActivity {
     String message;
     Toast toast;
     Intent myIntent3;
+String phone;
 
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.alert_activity);
-
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            String name = settings.getString("Name", null);
+             phone = settings.getString("Phone", null);
             myIntent3 = new Intent(this , IntroActivity.class);
-
+Log.v("PHONE",""+phone);
             myIntent = new Intent(this,ListenerActivity.class);
             b = (Button) findViewById(R.id.button3);
             v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             //Calendar c= Calendar.getInstance();
           //  int minutes = c.get(Calendar.MINUTE);
+            try {
+                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                r.play();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
            // Log.v("MIN",""+ minutes);
             v.vibrate(3000);
+
 
             messagetEt = (EditText)
 
                     findViewById(R.id.email);
 
-             message = si.firstName + " has shown stress";
+             message = name + " has shown stress";
 
             SmsManager smsManager = SmsManager.getDefault();
             try {
-                smsManager.sendTextMessage(si.Email, null, message, null, null);
+                smsManager.sendTextMessage(phone, null, message, null, null);
             }
             catch (IllegalArgumentException e){
+                Log.i("PHONE",""+phone);
                 toast = Toast.makeText(getApplicationContext(),"Invalid Phone Number please try again",Toast.LENGTH_SHORT);
                 toast.show();
                 startActivity(myIntent3);
@@ -81,7 +96,7 @@ public class AlertingActivity extends AppCompatActivity {
 
             Log.v("Phone",""+si.Email);
             SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(si.Email, null, message, null, null);
+            smsManager.sendTextMessage(phone, null, message, null, null);
             Log.v("SENT","SENT");
 
             startActivity(myIntent);

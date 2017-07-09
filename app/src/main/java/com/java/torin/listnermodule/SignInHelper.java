@@ -107,7 +107,7 @@ public class SignInHelper extends AppCompatActivity{
 
 
         Log.v("READ", "" + Arrays.toString(buffer));
-        for(int j = 0; j < 30;j++) {
+        for(int j = 0; j < 15;j++) {
 
             record.read(buffer, 0, bufferSize);
 
@@ -193,8 +193,15 @@ public class SignInHelper extends AppCompatActivity{
     public void getNorm(TextView t){
         normal=getRec(t);
     }
-    public void getYell(TextView t){
+    public void getYell(TextView t,Context context){
         yell=getRec(t);
+
+
+
+        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("YELL", yell);
+        editor.apply();
         Log.v("THING", ""+yell);
 
     }

@@ -2,8 +2,11 @@ package com.java.torin.listnermodule;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -24,6 +27,12 @@ public class NameActivity extends AppCompatActivity  {
 
             s.firstName = getFirstName();
             s.Email = getLastName();
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString("Name", getFirstName());
+            editor.putString("Phone",getLastName());
+            editor.apply();
+            Log.i("PHONE",""+s.Email);
             startActivity(myIntent);
         }
     };

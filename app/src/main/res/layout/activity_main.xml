@@ -13,7 +13,10 @@
     tools:context="com.java.torin.listnermodule.IntroActivity">
 
     <TextView
-        android:text="Thank you for choosing CHILL to help you understand and manage behavior related to stress. CHILL will listen to your voice pattern and alert you when stress is indicated. You will be given the opportunity to describe the event and receive a text message. In addition to basic information CHILL ask you to calibrate you voice. Please click next to get started."
+        android:text="Thank you for choosing CHILL to help you understand and manage behavior related to stress. CHILL will listen to your voice pattern and alert you when stress is indicated. You will be given the opportunity to describe the event and receive a text message. In addition to basic information CHILL will calibrate to your voice. Please click the logo to get started.
+
+
+"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView3"

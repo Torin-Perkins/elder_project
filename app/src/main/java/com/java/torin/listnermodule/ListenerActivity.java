@@ -1,10 +1,12 @@
 package com.java.torin.listnermodule;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -73,15 +75,23 @@ public class ListenerActivity extends AppCompatActivity {
         myIntent2 = new Intent(this , AlertingActivity.class);
         myIntent3 = new Intent(this , IntroActivity.class);
 
-        editor.putBoolean("seen", false);
+        editor.putBoolean("seen", true);
         editor.apply();
+        Context context;
 //Listener.cycler(myIntent3);
         //SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-
-        if(!s.setAct){
+        PackageManager pm = getApplicationContext().getPackageManager();
+        int hasPerm = pm.checkPermission(
+                Manifest.permission.RECORD_AUDIO,
+                getApplicationContext().getPackageName());
+        if ((hasPerm != PackageManager.PERMISSION_GRANTED)) {
             startActivity(myIntent3);
         }
-
+        /*
+        if(preferences.getBoolean("seen",true)){
+            startActivity(myIntent3);
+        }
+*/
 
         LocalBroadcastManager.getInstance(this).registerReceiver(listenerbroadcastreceiver,listenerintentfilter);
 

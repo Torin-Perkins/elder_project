@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/backround_colors">
     <TextView
-        android:text="Press start to begin CHILL Press Start.          To end CHILL press stop"
+        android:text="Press start to begin CHILL Press Start.                         To end CHILL press stop.                           To sign in again press resign in."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:id="@+id/textView4"
-        android:textSize="50sp"
+        android:textSize="40sp"
         android:fontFamily="sans-serif"
         android:layout_alignParentTop="true" />
 
@@ -42,10 +42,11 @@
         android:text="Resign In"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Button2"
-        android:layout_centerHorizontal="true"
         android:id="@+id/button4"
-        android:background="@drawable/backround_colors"/>
+        android:background="@drawable/backround_colors"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp" />
 
 
 </RelativeLayout>
