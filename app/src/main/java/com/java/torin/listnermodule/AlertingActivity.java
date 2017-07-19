@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.icu.util.Calendar;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -22,6 +24,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.io.IOException;
 
 /**
  * Created by Admin on 4/17/2017.
@@ -55,14 +59,41 @@ Log.v("PHONE",""+phone);
             v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             //Calendar c= Calendar.getInstance();
           //  int minutes = c.get(Calendar.MINUTE);
+            /*
             try {
-                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
                 r.play();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+*/
+            Uri defaultRingtoneUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
+            MediaPlayer mediaPlayer = new MediaPlayer();
+
+            try {
+                mediaPlayer.setDataSource(getApplicationContext(), defaultRingtoneUri);
+                mediaPlayer.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
+                mediaPlayer.prepare();
+                mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+                    @Override
+                    public void onCompletion(MediaPlayer mp)
+                    {
+                        mp.release();
+                    }
+                });
+                mediaPlayer.start();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
            // Log.v("MIN",""+ minutes);
             v.vibrate(3000);
 

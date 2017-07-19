@@ -30,8 +30,8 @@ public class YellActivity extends AppCompatActivity {
             // do something when the button is clicked
 
 
-
-    //
+                b.vibrate(500);
+            t.setText("DONE");
              s.getYell(t,getApplicationContext());
 
 
@@ -49,10 +49,11 @@ public class YellActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.yell_activity);
+        b = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         yes = (Button) findViewById(R.id.button);
         no= (Button) findViewById(R.id.button2);
         myIntent = new Intent(this, ListenerActivity.class);
-        t = (TextView) findViewById(R.id.textView7);
+        t = (TextView) findViewById(R.id.textView10);
         yes.setOnClickListener(Listener);
         no.setOnClickListener(List);
 

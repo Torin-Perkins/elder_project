@@ -95,19 +95,24 @@ public class SignInHelper extends AppCompatActivity{
         return record.getRecordingState() == RECORDSTATE_RECORDING;
     }
 
+    public void show(TextView t){
+        t.setText("REC");
+    }
+    public int getRec( TextView t) {
 
-    public int getRec(final TextView t) {
-        runListener();
-        buffer = new short[bufferSize];
+
+
 
         short[] tempBuffer = null;
         int y = 0;
         int i = 0;
 
-
+        runListener();
+        buffer = new short[bufferSize];
 
         Log.v("READ", "" + Arrays.toString(buffer));
-        for(int j = 0; j < 15;j++) {
+
+        for(int j = 0; j < 100;j++) {
 
             record.read(buffer, 0, bufferSize);
 
@@ -122,17 +127,17 @@ public class SignInHelper extends AppCompatActivity{
                     i=y;
                 }
 
-                Log.v("y", "" + i);
-                Log.v("j", "" + j);
+
 
 
             }
-
+            Log.v("y", "" + i);
+            Log.v("j", "" + j);
 
         }
 
         stopLis();
-
+       // t.setText("");
         return i;
     }
 
@@ -191,6 +196,8 @@ public class SignInHelper extends AppCompatActivity{
         whisper=getRec(t);
     }
     public void getNorm(TextView t){
+
+
         normal=getRec(t);
     }
     public void getYell(TextView t,Context context){

@@ -28,7 +28,9 @@ public class NormActivity extends AppCompatActivity {
             // do something when the button is clicked
 
 
-
+    //Toast.makeText(getApplicationContext(),"REC",Toast.LENGTH_LONG).show()
+            b.vibrate(500);
+    t.setText("DONE");
     s.getNorm(t);
 
 
@@ -50,8 +52,9 @@ public class NormActivity extends AppCompatActivity {
         setContentView(R.layout.norm_activity);
         yes = (Button) findViewById(R.id.button);
         no= (Button) findViewById(R.id.button2);
+        b = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         myIntent = new Intent(this, YellActivity.class);
-        t = (TextView) findViewById(R.id.textView2);
+        t = (TextView) findViewById(R.id.textView9);
         yes.setOnClickListener(Listener);
         no.setOnClickListener(List);
 

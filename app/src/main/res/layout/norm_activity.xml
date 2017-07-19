@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/backround_colors">
     <TextView
-        android:text="Now, let's get some voice information...This will take about 10 seconds. Please place your device 5 feet away and read this sentence after you push calibrate: 'The flaxen haired girl, fresh from an adventure, boasted loudly with excessive zeal'"
+        android:text="Now, let's get some voice information...This will take about 10 seconds. Please hold your device one arms length away and read this sentence after you push calibrate: 'The flaxen haired girl, fresh from an adventure, boasted loudly with excessive zeal'"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -12,19 +12,6 @@
         android:textSize="32sp"
         android:fontFamily="sans-serif"
         android:layout_alignParentTop="true" />
-
-    <Button
-        android:text="Calibrate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="56dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="35dp"
-        android:id="@+id/button"
-        android:background="@drawable/backround_colors"/>
 
     <Button
         android:text="Next"
@@ -45,6 +32,31 @@
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
         android:id="@+id/textView2" />
+
+    <Button
+        android:text="Calibrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:id="@+id/button"
+        android:background="@drawable/backround_colors"
+        android:layout_below="@+id/textView4"
+        android:layout_toLeftOf="@+id/textView2"
+        android:layout_toStartOf="@+id/textView2"
+        android:layout_marginRight="46dp"
+        android:layout_marginEnd="46dp" />
+
+    <TextView
+        android:text=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView9" />
 
 
 </RelativeLayout>
